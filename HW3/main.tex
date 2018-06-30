@@ -60,6 +60,84 @@ however, we have $a\co 2 \M{12}$ and $b\co 4\M{12}$.
 \end{enumerate}
 
 \paragraph{3.1.10}
+\begin{enumerate}
+  \item
+    We have $42 \mid 28-7x \implies 6\mid 4-x$, thus $x\co 4\M{6}$.
+  \item
+    When $x = 4$, we have $7x\co 28\M{42}$ and $x\co 4\M{42}$.
+  \item
+    No, when $x = 10$, we have $7x\co 28\M{42}$, but $x\co 10\M{42}$.
+  \item
+    \begin{proof}
+      From $ka\co kb \co \M{kn}$, we have $kn\mid kb-ka$, we can divide $k$ both
+      sides, we have
+      \begin{align*}
+        n\mid(b-a) \iff a\co b \co \M{n}.
+      \end{align*}
+    \end{proof}
+\end{enumerate}
 
+\paragraph{3.1.13}
+\begin{enumerate}
+  \item \begin{proof}
+    This is true. Give that $a\mid b$ and $a\mid c$, so that we have $b=q_1 a$
+    and $c=q_2 a$, where $q\in \Z$. Thus, we have $bc = q_1a q_2a = (q_1a
+    q_2)a$, and $a\mid bc$.
+  \end{proof}
+  \item \begin{proof}
+    This is false. Let $a=3,b=30,c=30$, we have $a\mid c$ and $b\mid c$.
+    However, $ab=90$ which does not divides $c$.
+  \end{proof}
+\end{enumerate}
+
+\paragraph{3.1.14}
+\begin{enumerate}
+  \item \begin{proof}
+      For any integer $b$, if $b\co 0\M{p}$, where $p$ is a prime number, we
+      have $b^p\co0\co b\M{p}$. If $b\nc 0\M{p}$, by Fermat's Little Theorem,
+      we have $b^{p-1}\co 1\M{p}$. Multiple both sides by $b\M{p}$, we have
+      $b^{p}\co b\M{p}$.
+  \end{proof}
+  \item \begin{proof}
+      For any prime number $p$, we have
+      $2^{p}\co 2\M{p}\iff 2\co2^{p-1}\M{p}\iff p\mid (2^p-2)$.
+  \end{proof}
+  \item \begin{proof}
+    Let $n=341$, which is not a prime, as $341=11\cdot31$. We have
+    $2^{341}-2=4479489484355608421114884561136\\
+              8885562432909944692990697999782019275837423603218\\
+              90761754986543214231550$, which is dividable by $341$.
+  \end{proof}
+\end{enumerate}
+
+\paragraph{3.2.5}
+If $3x\co 5\M{6}$, we have $6x\co 10\M{6}\co 4\M{6}$ which is impossible, since
+$6x\co 0\M{6}$ for $x\in\Z$.
+
+\paragraph{3.2.6}
+$12x\co1\M{17}\implies 12x+17y=1$ using Euclidean algorithm, we have
+\begin{align*}
+  17 &= 1\cdot 12 + 5 \\
+  12 &= 2\cdot 5  + 2 \\
+  5  &= 2\cdot 2  + 1 \\
+  2  &= 2\cdot 1  + 0
+\end{align*}
+Reversing the algorithm, gives us
+\begin{align*}
+  1 &= 5 - 2\cdot 2 = 5 - 2\cdot(12 - 2\cdot5) = 5\cdot 5 - 2\cdot 12\\
+  &= 5\cdot (17-12) - 2\cdot 12 = 5\cdot 17 - 7\cdot 12.
+\end{align*}
+Thus, we have the solution of $x\co -7\M{17}\co10\M{17}$.
+
+\paragraph{3.2.7}
+$5x+7y=239$
+
+\paragraph{3.2.8}
+
+\paragraph{3.2.9}
+
+\paragraph{3.2.10}
+
+\paragraph{3.2.12}
 
 \end{document}
