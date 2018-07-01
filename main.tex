@@ -459,9 +459,9 @@ June 29, 2018
 
 \paragraph{3.1.1}
   \begin{align*}
-    3^{32} &\co 94143178827 \co 2 \M{7} \\
+    3^{23} &\co 94143178827 \co 5 \M{7} \\
     3^2 &\co 9 \co 2 \M{7} \\
-    3^{32} &\co 3^2 \M{7}
+    3^{32} &\nc 3^2 \M{7}
   \end{align*}
 
 \paragraph{3.1.2}
@@ -488,8 +488,8 @@ They are identical because, from the \textbf{Theorem 3.7}, we have
 \end{proof}
 
 \paragraph{3.1.7}
-Let $n=1, a=2, b=4$, we have $a^2 \co 4 \M{12} \nc b^2 \co 16 \co 4 \M{12}$,
-however, we have $a\co 2 \M{12}$ and $b\co 4\M{12}$.
+Let $n=1, a=2, b=4$, we have $a^2 \co 4 \M{12} \co b^2 \co 16 \co 4 \M{12}$,
+however, we have $a\co 2 \nc b\co 4\M{12}$.
 
 \paragraph{3.1.8}
 \begin{enumerate}
@@ -577,14 +577,99 @@ Reversing the algorithm, gives us
 Thus, we have the solution of $x\co -7\M{17}\co10\M{17}$.
 
 \paragraph{3.2.7}
-$5x+7y=239$
+From the word problem, we have the equation $5x+7y=239$, where $x$ is the
+number of candies that the five-people-group took, and $y$ is the number of
+candies that the seven-people-group took. Applying the Euclidean algorithm we
+have
+\begin{align*}
+  7 &= 1\cdot 5 + 2 \\
+  5 &= 2\cdot 2 + 1 \\
+  2 &= 2\cdot 1 + 0.
+\end{align*}
+Thus, we have $\gcd(5,7)=1$. The equation has at least one solution. By
+reversing the algorithm, we have
+\begin{align*}
+  1 &= 5 - 2\cdot2 \\
+  1 &= 5 - 2\cdot(7 - 1\cdot 5) \\
+  1 &= 3\cdot5 - 2\cdot7.
+\end{align*}
+Multiplying by $239$, we have $(x_0,y_0) = (717,-478)$ is an initial solution.
+The general solution is then
+\begin{align*}
+  (x,y) = (717+7t,-478-5t)
+\end{align*}
+When $-102\le t\le-96$, to make $x,y\in\N$, thus, the solution is not unique,
+and we cannot be sure the amount of candy each person took.
 
 \paragraph{3.2.8}
+\begin{enumerate}
+  \item The integer decreasing sequence $r_{i+1}<r_i$ has a upper bound $m$ and
+    a lower bound $0$. We are sure that $r_{1}<m$ and $r_{2}<m-1$, because
+    $r_i,m\in\Z$. Thus, the sequence will have finite terms, because $m$ is
+    finite, and the upper bound for $r_i$ is $m-(i-1)$, and it is strictly
+    greater than $0$.
+  \item \begin{proof}
+    Let $k=\gcd(m,n)$ we have $k\mid m$ and $k\mid n$. We have $m=q_1k$ and
+    $n=q_2k$, then $m-qn=q_1k-qq_2k=(q_1-qq_2)k$. We have $k\mid (m-qn)$, thus
+    $k\mid r$, and $\gcd(m,n)\mid r$.
+  \end{proof}
+  \begin{theorem}\label{the:gcd}
+    Given $m=qn+r$, we have $\gcd(m,n)=\gcd(n,r)$.
+  \end{theorem}
+  \begin{proof}
+    We know that $\gcd(m,n)\mid m$, $\gcd(m,n)\mid n$, and $\gcd(m,n)\mid r$.
+    We also have $\gcd(n,r)\mid n$, $\gcd(n,r)\mid r$, and $\gcd(n,r)\mid m$,
+    since $\gcd(n,r)\mid (qn+r)$ by the logic above. We have
+    $\gcd(m,n)\le\gcd(n,r)\land \gcd(m,n)\ge\gcd(n,r)$. Thus, we have
+    $\gcd(m,n)=\gcd(n,r)$.
+  \end{proof}
+  \item \label{list:gcd} Since we have, $r_{i}=q_{i+2}r_{i+1}+r_{i+2}$, we
+    have, $\gcd(r_i, r_{i+1}) = \gcd(r_{i+2},r_{i+2})$ by \cref{the:gcd}. Thus,
+    we have $\gcd(m,n) = \gcd(r_p,0)=r_p$. We then have $\gcd(m,n)\mid r_p$.
+  \item We know that $\gcd(m,n) = r_p$ from the reason above. We also know that
+    $\gcd(m,n)$ is a common factor for $m,n$ and $r_i$ from the reason above
+    and \cref{the:gcd}. Thus, $r_p$ divides all the integers in the sequence.
+    In particular that $r_p\mid m\land r_p\mid n$.
+  \item If $\gcd(m,n)<r_p$, we will have a contradiction, because $r_p\mid
+    m\land r_p\mid n$. However, $\gcd(m,n)$ also divides $r_p$ by
+    \cref{the:gcd} and the logic above. Thus, $r_p=\gcd(m,n)$.
+\end{enumerate}
 
 \paragraph{3.2.9}
+\begin{proof}
+  Given that $d\mid m$ and $d\mid n$, we have $m=q_1d$ and $n=q_2d$, for
+  $q_1,q_2\in\Z$. We know that $mx+ny=\gcd(m,n)$ has integer solutions, by
+  B\'ezout's Identity. Thus, we have
+  \begin{align*}
+    \gcd(m,n) = mx+ny = q_1d x + q_2 d y = (q_1x + q_2y)d.
+  \end{align*}
+  Thus, we have $d\mid \gcd(m,n)$.
+\end{proof}
 
 \paragraph{3.2.10}
+\begin{proof}
+  We can show that $\gcd(m,n)=1\implies\exists x,y\in\Z$ such that $mx+ny=1$.
+  We have $mx+ny=\gcd(m,n)$. By B\'ezout's Identity, we have $\exists x,y\in\Z$
+  such that $mx+ny=1$. We can use proof by contradiction to show $\exists
+  x,y\in\Z\implies \gcd(m,n)=1$. Assume that $\exists x,y\in\Z$ such that
+  $mx+ny=1$ and $\gcd(m,n)\ne 1$. Let $d=\gcd(m,n)$, we then have $k\mid m$ and
+  $k\mid n$. Hence, we have $m=q_1d$ and $n=q_2d$, for $q_1,q_2\in\Z$. We then
+  have $mx+ny=q_1dx + q_2dy = (q_1x + q_2y)d=1$. However, $d\ne 1$ and $d, q_1x
+  + q_2y\in\Z$, thus $(q_1x + q_2y)d$ will never equal to $1$. Hence, this is a
+  contradiction. We have $\gcd(m,n)=1\iff x,y\in\Z$ such that $mx+ny=1$.
+\end{proof}
 
 \paragraph{3.2.12}
+\begin{proof}
+  We are going to proof it by the result of \textbf{3.2.10}. We know that
+  $\gcd(a,b)=1\implies\iff a,b\in\Z$ such that $ax+by=1$. Let
+  $x=-12,y=5,a=5n+2,b=12n+5$, we have
+  \begin{align*}
+    &(5n+2)x+(12n+5)y \\
+    &= -12\cdot 5n + 12\cdot 5n + 2\cdot(-12) + 5\cdot 5 \\
+    &= -24 + 25 = 1
+  \end{align*}
+  Thus, we have $\gcd(5n+2,12n+5)=1$.
+\end{proof}
 
 \end{document}
